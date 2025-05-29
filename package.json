@@ -1,12 +1,14 @@
 {
   "name": "animacao-computacao-grafica",
   "version": "0.1.0",
-  "private": true,
-  "scripts": {
+  "private": true,  "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "analyze": "cross-env ANALYZE=true next build",
+    "type-check": "tsc --noEmit",
+    "deploy": "vercel --prod"
   },
   "dependencies": {
     "@react-three/drei": "^9.105.6",
@@ -16,13 +18,14 @@
     "react": "^18",
     "react-dom": "^18",
     "three": "^0.164.1"
-  },
-  "devDependencies": {
+  },  "devDependencies": {
+    "@next/bundle-analyzer": "^14.2.29",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/three": "^0.164.0",
     "autoprefixer": "^10.4.19",
+    "cross-env": "^7.0.3",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
     "postcss": "^8.4.38",
