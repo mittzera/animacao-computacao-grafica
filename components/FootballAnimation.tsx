@@ -411,7 +411,7 @@ const FootballAnimation: React.FC<FootballAnimationProps> = ({
 
       <div className="absolute top-4 left-4 bg-black bg-opacity-75 text-white p-4 rounded-lg">
         <h3 className="text-lg font-bold mb-4">
-          Controles da Animação (FIXED)
+          Controles da Animação
         </h3>
         <div className="space-y-2">
           <button
