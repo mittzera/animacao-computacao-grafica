@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Host
+Host: https://animacao-computacao-grafica.vercel.app
+
+# Sitemaps
+Sitemap: https://animacao-computacao-grafica.vercel.app/sitemap.xml
