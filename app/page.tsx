@@ -1,6 +1,23 @@
 'use client'
 
-import FootballAnimation from '@/components/FootballAnimationFixed'
+import dynamic from 'next/dynamic'
+
+// Carrega o componente apenas no client-side para evitar problemas de SSR com Three.js
+const FootballAnimationFixed = dynamic(
+  () => import('@/components/FootballAnimationFixed'),
+  { 
+    ssr: false,
+    loading: () => (
+      <div className="w-full h-screen flex items-center justify-center bg-sky-200">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600 mx-auto"></div>
+          <p className="mt-4 text-xl font-semibold text-blue-800">Carregando Animação 3D...</p>
+          <p className="text-blue-600">Preparando Three.js e WebGL</p>
+        </div>
+      </div>
+    )
+  }
+)
 
 export default function Home() {
   const handleAnimationComplete = () => {
@@ -9,7 +26,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      <FootballAnimation onAnimationComplete={handleAnimationComplete} />
+      <FootballAnimationFixed onAnimationComplete={handleAnimationComplete} />
       
       <div className="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white p-4 rounded-lg max-w-md">
         <h2 className="text-xl font-bold mb-2">Animação 3D - Computação Gráfica</h2>

@@ -21,6 +21,18 @@ const nextConfig = {
       }
     }
 
+    // Fix for Three.js modules
+    config.module.rules.push({
+      test: /\.js$/,
+      include: /node_modules\/three/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env']
+        }
+      }
+    })
+
     return config
   },
 
@@ -38,6 +50,9 @@ const nextConfig = {
     unoptimized: false,
     domains: [],
   },
+
+  // Ensure proper SSR handling
+  transpilePackages: ['three']
 }
 
 module.exports = nextConfig
